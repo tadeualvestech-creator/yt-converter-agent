@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YTConvert — Conversor YouTube MP3 & MP4</title>
+  <meta name="description" content="Converta vídeos do YouTube para MP3 ou MP4 com qualidade máxima. Rápido, gratuito e sem anúncios." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+  <!-- Background Orbs -->
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-orb orb-3"></div>
+
+  <div class="app-wrapper">
+
+    <!-- HEADER -->
+    <header class="header">
+      <div class="logo">
+        <span class="logo-icon">▶</span>
+        <span class="logo-text">YT<span class="logo-accent">Convert</span></span>
+      </div>
+      <p class="header-tagline">Converta qualquer vídeo do YouTube em segundos</p>
+    </header>
+
+    <!-- MAIN CARD -->
+    <main class="card" id="main-card">
+
+      <!-- Format Selector -->
+      <div class="format-tabs" id="format-tabs">
+        <button class="tab active" id="tab-mp3" data-format="MP3" onclick="selectFormat('MP3')">
+          <span class="tab-icon">🎵</span>
+          <span class="tab-label">MP3</span>
+          <span class="tab-sub">Somente áudio</span>
+        </button>
+        <button class="tab" id="tab-mp4" data-format="MP4" onclick="selectFormat('MP4')">
+          <span class="tab-icon">🎬</span>
+          <span class="tab-label">MP4</span>
+          <span class="tab-sub">Vídeo + áudio</span>
+        </button>
+      </div>
+
+      <!-- URL Input -->
+      <div class="input-group" id="input-group">
+        <div class="input-wrapper">
+          <span class="input-icon">🔗</span>
+          <input
+            type="url"
+            id="url-input"
+            class="url-input"
+            placeholder="Cole aqui o link do YouTube..."
+            autocomplete="off"
+            spellcheck="false"
+          />
+          <button class="paste-btn" id="paste-btn" onclick="pasteURL()" title="Colar da área de transferência">
+            📋
+          </button>
+        </div>
+        <button class="convert-btn" id="convert-btn" onclick="startConversion()">
+          <span class="btn-icon">⚡</span>
+          <span class="btn-text">Converter</span>
+        </button>
+      </div>
+
+      <!-- Video Preview (shown after metadata is fetched) -->
+      <div class="video-preview hidden" id="video-preview">
+        <img class="preview-thumb" id="preview-thumb" src="" alt="Thumbnail" />
+        <div class="preview-info">
+          <p class="preview-title" id="preview-title"></p>
+          <p class="preview-meta" id="preview-meta"></p>
+        </div>
+      </div>
+
+      <!-- Progress Section -->
+      <div class="progress-section hidden" id="progress-section">
+        <div class="progress-status" id="progress-status">Iniciando...</div>
+        <div class="progress-bar-wrapper">
+          <div class="progress-bar" id="progress-bar" style="width:0%"></div>
+        </div>
+        <div class="progress-details" id="progress-details"></div>
+        <div class="progress-steps" id="progress-steps"></div>
+      </div>
+
+      <!-- Result Section -->
+      <div class="result-section hidden" id="result-section">
+        <div class="result-icon">✅</div>
+        <p class="result-title">Arquivo pronto!</p>
+        <div class="result-meta" id="result-meta"></div>
+        <a class="download-btn" id="download-btn" href="#" download>
+          <span>⬇️</span> Baixar Agora
+        </a>
+        <p class="result-ttl">⚠️ Link disponível por 30 minutos</p>
+        <button class="new-btn" onclick="resetUI()">Converter outro vídeo</button>
+      </div>
+
+      <!-- Error Section -->
+      <div class="error-section hidden" id="error-section">
+        <div class="error-icon">⚠️</div>
+        <p class="error-title" id="error-title">Ocorreu um erro</p>
+        <p class="error-msg" id="error-msg"></p>
+        <button class="new-btn" onclick="resetUI()">Tentar novamente</button>
+      </div>
+
+    </main>
+
+    <!-- FEATURES -->
+    <section class="features">
+      <div class="feature-card">
+        <div class="feat-icon">⚡</div>
+        <h3>Ultra Rápido</h3>
+        <p>Tecnologia yt-dlp + FFmpeg para conversões em tempo record</p>
+      </div>
+      <div class="feature-card">
+        <div class="feat-icon">🎵</div>
+        <h3>Alta Qualidade</h3>
+        <p>MP3 VBR ~320kbps e MP4 até 1080p com metadados embutidos</p>
+      </div>
+      <div class="feature-card">
+        <div class="feat-icon">🛡️</div>
+        <h3>Seguro</h3>
+        <p>Arquivos isolados por sessão, deletados automaticamente após 30 min</p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>Uso pessoal apenas. Respeite os direitos autorais dos criadores de conteúdo.</p>
+    </footer>
+
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

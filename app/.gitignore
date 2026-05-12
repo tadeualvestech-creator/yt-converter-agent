@@ -1,0 +1,13 @@
+# Downloads e Temporários
+downloads/
+tmp/
+*.mp3
+*.mp4
+
+# Segurança e Auth
+cookies.txt
+*.env
+__pycache__/
+
+# Logs de erro da Skill 4
+incident_reports/

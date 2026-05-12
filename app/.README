@@ -1,0 +1,35 @@
+# 🤖 YouTube Media Orchestrator & Converter
+
+Uma aplicação inteligente e resiliente para conversão de vídeos do YouTube em MP3 e MP4, utilizando uma arquitetura modular baseada em **Skills Agentic**. Este projeto foi desenhado para contornar bloqueios modernos de bot e garantir a melhor fidelidade de áudio e vídeo.
+
+## 🧠 Arquitetura de Inteligência (The Skills)
+
+O diferencial deste projeto é a separação de responsabilidades em 5 módulos de "conhecimento" (specs):
+
+1.  **Skill #1: Metadata Extractor** - Validação de URLs e análise técnica pré-download (resoluções, duração, metadados).
+2.  **Skill #2: Identity & Bypass** - Gestão de Cookies, User-Agents e PO Tokens para evitar erros 403 e desafios de bot.
+3.  **Skill #3: Media Orchestrator** - O "músculo" do projeto. Gerencia o download e o processamento via **yt-dlp** e **FFmpeg**.
+4.  **Skill #4: Resilience & Recovery** - Sistema de auto-cura que interpreta logs de erro e decide por re-tentativas ou diagnósticos amigáveis.
+5.  **Skill #5: Environment Guard** - Verifica a saúde do sistema e auxilia na instalação automática de dependências como o FFmpeg.
+
+## 🚀 Funcionalidades
+
+- ✅ Conversão para **MP3** com bitrate ajustável e inclusão automática de Capa (Thumbnail) e Tags ID3.
+- ✅ Conversão para **MP4** em alta definição (até 4K) com merge inteligente de áudio/vídeo.
+- ✅ Sistema de **Bypass de Bloqueio** integrado.
+- ✅ Notificações de erro acionáveis (diz exatamente o que fazer para consertar o ambiente).
+
+## 🛠️ Pré-requisitos
+
+O projeto utiliza o **FFmpeg** para o processamento de mídia. Caso não o tenha instalado, o sistema avisará durante a execução.
+
+- Python 3.10+
+- FFmpeg
+- yt-dlp
+
+## 📦 Instalação
+
+1. Clone o repositório:
+   ```bash
+   git clone [https://github.com/tadeualvestech-creator/yt-converter-agent.git](https://github.com/tadeualvestech-creator/yt-converter-agent.git)
+   cd yt-converter-agent

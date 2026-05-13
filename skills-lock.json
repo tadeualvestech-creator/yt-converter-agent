@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "skills": {
+    "frontend-designer": {
+      "source": "jamesrochabrun/skills",
+      "sourceType": "github",
+      "skillPath": "skills/frontend-designer/SKILL.md",
+      "computedHash": "e93178078557a05f62422fe21862dba911d56bc5532f602443b9a0474380d390"
+    },
+    "nuxt": {
+      "source": "antfu/skills",
+      "sourceType": "github",
+      "skillPath": "skills/nuxt/SKILL.md",
+      "computedHash": "6f5456948b35c0c0005424098eaf28ebbba1bbd92a3f3268466fe7d85e9e3789"
+    }
+  }
+}

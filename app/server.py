@@ -29,7 +29,19 @@ from app.skills import skill3_converter as skill3
 from app.skills import skill4_recovery  as skill4
 from app.skills import skill5_env_guard as skill5
 
-logging.basicConfig(level=logging.INFO,
+import os
+import sys
+
+# Descobre onde está a pasta raiz do projeto (um nível acima da pasta 'app')
+base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ffmpeg_bin = os.path.join(base_dir, 'bin')
+
+# Injeta o caminho correto no sistema
+os.environ["PATH"] += os.pathsep + ffmpeg_bin
+
+print(f"Servidor iniciado. FFmpeg localizado em: {ffmpeg_bin}")
+
+logging.basicConfig(level=logging.DEBUG,
                     format="%(asctime)s [%(levelname)s] %(name)s: %(message)s")
 logger = logging.getLogger("orchestrator")
 

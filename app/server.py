@@ -21,7 +21,12 @@ from pathlib import Path
 from flask import Flask, request, jsonify, Response, send_file, abort
 from flask_cors import CORS
 
-STATIC_DIR = os.path.join(PROJECT_ROOT, "static")
+# Pasta de arquivos estáticos (Nuxt build output)
+STATIC_DIR = os.path.join(PROJECT_ROOT, "frontend", ".output", "public")
+# Fallback para pasta 'static' se o Nuxt não tiver sido compilado ainda
+if not os.path.exists(STATIC_DIR):
+    STATIC_DIR = os.path.join(PROJECT_ROOT, "static")
+
 
 from app.skills import skill1_extractor as skill1
 from app.skills import skill2_auth      as skill2
